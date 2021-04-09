@@ -1,6 +1,4 @@
-const joi = require('joi');
-
-const common = joi.object({
+const common = joi => joi.object({
     url: /^https:\/\/graph\.facebook\.com\/v2\.6\/me\/messages\?access_token=.+/,
     body: joi.object({
         recipient: joi.object({
@@ -12,7 +10,7 @@ const common = joi.object({
         apiDoc: 'https://developers.facebook.com/docs/messenger-platform/reference/send-api#request'
     });
 
-module.exports = joi.alternatives([
+module.exports = joi => joi.alternatives([
     joi.object({
         body: joi.object({
             message: joi.object({
@@ -20,7 +18,7 @@ module.exports = joi.alternatives([
             })
         })
     })
-        .concat(common)
+        .concat(common(joi))
         .meta({
             apiDoc: 'https://developers.facebook.com/docs/messenger-platform/reference/send-api#message'
         })
@@ -38,7 +36,7 @@ module.exports = joi.alternatives([
             })
         })
     })
-        .concat(common)
+        .concat(common(joi))
         .meta({
             apiDoc: 'https://developers.facebook.com/docs/messenger-platform/reference/send-api/quick-replies'
         })
@@ -59,7 +57,7 @@ module.exports = joi.alternatives([
             })
         })
     })
-        .concat(common)
+        .concat(common(joi))
         .meta({
             apiDoc: 'https://developers.facebook.com/docs/messenger-platform/reference/template/generic'
         })
