@@ -53,7 +53,7 @@ module.exports = function messenger({registerErrors, utMethod}) {
                         }
                     });
                 },
-                [`${hook}.identity.request.receive`]: ({entry} = [{}], {headers, params}) => {
+                [`${hook}.identity.request.receive`]: ({entry} = [{}], {params, request: {headers}}) => {
                     if (typeof headers['x-hub-signature'] !== 'string') {
                         throw this.errors['webhook.missingHeader']({params: {header: 'x-hub-signature'}});
                     }
@@ -67,11 +67,11 @@ module.exports = function messenger({registerErrors, utMethod}) {
                         platform: 'messenger'
                     };
                 },
-                [`${hook}.identity.response.send`]: (msg, {headers, payload}) => {
+                [`${hook}.identity.response.send`]: (msg, {request: {payload, headers}}) => {
                     const [algorithm, signature] = headers['x-hub-signature'].split('=');
                     const serverSignature = crypto
                         .createHmac(algorithm, msg.secret)
-                        .update(payload, 'utf8')
+                        .update(payload)
                         .digest();
                     if (crypto.timingSafeEqual(Buffer.from(signature, 'hex'), serverSignature)) {
                         return msg;
