@@ -1,3 +1,12 @@
+## [7.2.1](https://github.com/softwaregroup-bg/ut-port-messenger/compare/v7.2.0...v7.2.1) (2021-04-10)
+
+
+### Bug Fixes
+
+* get data from $meta.request ([534950e](https://github.com/softwaregroup-bg/ut-port-messenger/commit/534950eb1f73823670c0e7233e4dda3cf7974316))
+
+
+
 # [7.2.0](https://github.com/softwaregroup-bg/ut-port-messenger/compare/v7.1.0...v7.2.0) (2021-04-09)
 
 
