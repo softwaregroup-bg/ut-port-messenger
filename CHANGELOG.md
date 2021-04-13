@@ -1,3 +1,12 @@
+## [7.2.3](https://github.com/softwaregroup-bg/ut-port-messenger/compare/v7.2.2...v7.2.3) (2021-04-13)
+
+
+### Bug Fixes
+
+* k8s port ([3debb6a](https://github.com/softwaregroup-bg/ut-port-messenger/commit/3debb6a26f111e309e9f4b70b07f1582b89f6c8b))
+
+
+
 ## [7.2.2](https://github.com/softwaregroup-bg/ut-port-messenger/compare/v7.2.1...v7.2.2) (2021-04-10)
 
 
