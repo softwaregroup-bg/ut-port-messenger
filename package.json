@@ -4,7 +4,7 @@
     "main": "index.js",
     "dependencies": {
         "mime-types": "2.1.22",
-        "ut-port-webhook": "^8.1.0"
+        "ut-port-webhook": "^8.1.1"
     },
     "devDependencies": {
         "tap": "^12.5.3",
